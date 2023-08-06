@@ -1,0 +1,123 @@
+body {
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/092/146/original/weatherAppBackground.jpg?1691157459);
+  background-size: cover;
+  display: block;
+}
+.container {
+  margin: 60px auto;
+  color: #44958b;
+  border: 1px, solid, #99bedb;
+  border-radius: 6px;
+  background: #99bedb;
+}
+
+.right-column,
+.left-column {
+  padding: 15px;
+}
+.search-city {
+  opacity: 0.7;
+  font-style: italic;
+  border-radius: 20px;
+  border-color: #44958b;
+  color: #44958b;
+}
+h1 {
+  font-size: 90px;
+  text-align: center;
+}
+.city-name {
+  text-align: center;
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 45px;
+}
+.day-day-time {
+  font-weight: bolder;
+}
+.weather-today {
+  font-size: smaller;
+}
+img {
+  width: 100%;
+  border-radius: 8px;
+}
+.week {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+.current-location {
+  border-radius: 5px;
+  font-size: 13px;
+  text-align: center;
+  transition: all, 150ms, ease-in-out;
+  border-color: #44958b;
+  background: #44958b;
+  color: white;
+  padding: 4px 8px;
+}
+.location {
+  text-align: right;
+}
+
+.℉,
+.℃ {
+  font-weight: bolder;
+  border-radius: 50%;
+  text-align: center;
+  transition: all, 150ms, ease-in-out;
+}
+.℃ {
+  background-color: #44958b;
+  color: white;
+  border-color: #44958b;
+}
+.℉ {
+  background-color: white;
+  color: #44958b;
+  border-color: #44958b;
+}
+
+.card {
+  transition: all 200ms ease-in-out;
+  border-color: #44958b;
+  background-color: #a4c6dd;
+  color: white;
+}
+.card:hover {
+  background-color: beige;
+  border-color: beige;
+  color: #44958b;
+}
+.day {
+  text-align: center;
+}
+.emoji {
+  text-align: center;
+  font-size: 25px;
+}
+.week-degree {
+  text-align: center;
+}
+.week-degree-low {
+  opacity: 0.7;
+}
+.wind,
+.humidity,
+.sunrise-sunset {
+  text-align: center;
+}
+.wind-speed,
+.humidity-percent {
+  font-size: 35px;
+}
+.card-subtitle-wind,
+.card-subtitle-humidity,
+.card-subtitle-sunrise-sunset {
+  opacity: 0.8;
+}
+.sunrise-sunset-time {
+  font-size: 25px;
+}

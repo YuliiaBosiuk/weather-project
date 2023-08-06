@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather App</title>
+    <link href="src/styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+        <div class="row weather-body">
+            <div class="col-3 left-column">  
+                <form>  
+                        <input class="search-city" id="search-city-name" type="text" placeholder="search for a city" />
+                        <input class="search-city" type="submit" value="🔍" />      
+                </form>
+                </br>
+                <h1>
+                    ⛅
+                </h1>
+                <p class="city-name" id="city-name-asked">
+                    <strong>
+                        
+                    </strong>
+                </p>
+                <h2>
+                    <span class="h2-degree" id="temperature-now"> 16</span>℃
+                </h2>
+                    <p class="day-time" id="date">
+                    <span class="day-day-time"> </span>
+                </p>
+                <div>
+                    ☁️ <span class="weather-today" id="weather-today"> Mostly cloudy</span>
+                </div>
+                </br>
+                </br>
+                <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/092/372/original/seoul-city.jpg?1691338630" alt="picture and name of a city">
+
+            </div>
+            <div class="col-9 right-column">
+                <div class="row">
+                    <div class="col-1 today">
+                        Today
+                    </div>
+                    <div class="col-6 week">
+                        Week
+                    </div>
+                    <div class="col-3 location">
+                        <button class="current-location" id="current-location">
+                           Current Location
+                        </button>
+                    </div>
+                    <div class="col-1">
+                        <button class="℃" id="celsius">
+                        ℃
+                        </button>
+                    </div>
+                    <div class="col-1">
+                        <button class="℉" id="fahrenheit">
+                        ℉
+                        </button>
+                    </div>
+                </div>
+                </br>
+                </br>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title day">Mon</p>
+                                </br>
+                                <p class="card-subtitle emoji">⛅</p>
+                                </br>
+                                <p class="week-degree">20° <span class="week-degree-low"> 13°</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title day">Tue</p>
+                                </br>
+                                <p class="card-subtitle emoji">⛅</p>
+                                </br>
+                                <p class="week-degree">20° <span class="week-degree-low"> 13°</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title day">Wed</p>
+                                </br>
+                                <p class="card-subtitle emoji">⛅</p>
+                                </br>
+                                <p class="week-degree">20° <span class="week-degree-low"> 13°</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title day">Thu</p>
+                                </br>
+                                <p class="card-subtitle emoji">⛅</p>
+                                </br>
+                                <p class="week-degree">20° <span class="week-degree-low"> 13°</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title day">Fri</p>
+                                </br>
+                                <p class="card-subtitle emoji">⛅</p>
+                                </br>
+                                <p class="week-degree">20° <span class="week-degree-low"> 13°</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title day">Sat</p>
+                                </br>
+                                <p class="card-subtitle emoji">⛅</p>
+                                </br>
+                                <p class="week-degree">20° <span class="week-degree-low"> 13°</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title day">Sun</p>
+                                </br>
+                                <p class="card-subtitle emoji">⛅</p>
+                                </br>
+                                <p class="week-degree">20° <span class="week-degree-low"> 13°</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                </br>
+                <p class="highlights">
+                    <strong>
+                        Today's Highlights
+                    </strong>
+                </p>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title wind">Wind Status</p>
+                                </br>
+                                <p class="card-subtitle-wind"><span class="wind-speed" id="wind-speed">8.30 </span><strong>km/h</strong></p>
+                                </br>
+                            </div> 
+                        </div>
+                    </div>
+                     <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title humidity">Humidity</p>
+                                </br>
+                                <p class="card-subtitle-humidity"><span class="humidity-percent" id="humidity-percent">13 </span><strong>%</strong></p>
+                                </br>
+                            </div> 
+                        </div>
+                    </div>
+                     <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-title sunrise-sunset">Sunrise & Sunset</p>
+                                </br>
+                                <p class="card-subtitle-sunrise-sunset">
+                                    <span class="sunrise-sunset-time" id="sunrise-time">⬆️ 4:02 </span>AM
+                                    </br>
+                                    <span class="sunrise-sunset-time" id="sunset-time">⬇️ 21:48 </span>PM
+                                </p>                               
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
