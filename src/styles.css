@@ -1,17 +1,14 @@
 body {
   background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/092/146/original/weatherAppBackground.jpg?1691157459);
   background-size: cover;
-  display: block;
 }
 .container {
-  margin-top: 60px;
-  margin-bottom: 0;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin: 60px auto 0;
   color: #44958b;
   border: 1px, solid, #99bedb;
   border-radius: 6px;
   background: #99bedb;
+  max-width: 960px;
 }
 
 .right-column,
@@ -27,7 +24,7 @@ body {
   color: #44958b;
 }
 h1 {
-  font-size: 90px;
+  font-size: 70px;
   text-align: center;
 }
 .city-name {
@@ -47,7 +44,7 @@ h2 {
 h2,
 .day-time,
 .description-weather {
-  margin-left: 20px;
+  margin-left: 12px;
 }
 img {
   width: 90%;
@@ -68,10 +65,11 @@ img {
   border-color: #44958b;
   background: #44958b;
   color: white;
-  padding: 4px 8px;
+  padding: 8px 10px;
 }
 .location {
   text-align: right;
+  padding: 0;
 }
 
 .℉,
@@ -91,7 +89,13 @@ img {
   color: #44958b;
   border-color: #44958b;
 }
-
+.active {
+  color: white;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+}
 .card {
   transition: all 200ms ease-in-out;
   border-color: #44958b;
@@ -134,15 +138,15 @@ img {
   font-size: 25px;
 }
 .gitHubCode {
-  color: white;
+  color: #44958b;
   display: block;
-  margin-left: 103px;
-  margin-top: 10px;
   font-size: smaller;
+  margin-left: 12px;
+  padding-bottom: 7px;
 }
 .open-source {
   text-decoration: none;
-  color: #99bedb;
+  color: white;
 }
 .open-source:hover {
   text-decoration: underline;
