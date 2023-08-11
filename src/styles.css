@@ -46,7 +46,7 @@ h1 {
 .description-weather {
   margin-left: 12px;
 }
-img {
+.city-picture {
   width: 90%;
   border-radius: 8px;
   display: block;
