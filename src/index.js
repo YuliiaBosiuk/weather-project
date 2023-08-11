@@ -42,14 +42,10 @@ function handleSubmit(event) {
   searchFor(city);
 }
 
-searchFor("Seoul");
-let form = document.querySelector("form");
-form.addEventListener("submit", handleSubmit);
-
 function showWeatherCondition(response) {
-  document.querySelector("#temperature-now").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  celsiusTemperature = response.data.main.temp;
+  let temperatureElement = document.querySelector("#temperature-now");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature) + "℃";
   document.querySelector(
     "#city-name-asked"
   ).innerHTML = `<strong>${response.data.name}</strong>`;
@@ -78,5 +74,32 @@ function getCurrentLocation(event) {
 let currentPositionButton = document.querySelector("#current-location");
 currentPositionButton.addEventListener("click", getCurrentLocation);
 
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature-now");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature) + "℉";
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature-now");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature) + "℃";
+}
+
 let celsiusTemperature = null;
-let fahrenheit;
+
+let form = document.querySelector("form");
+form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+searchFor("Seoul");

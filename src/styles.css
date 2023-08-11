@@ -32,7 +32,7 @@ h1 {
   font-size: 35px;
 }
 
-h2 {
+.h2-degree {
   font-size: 45px;
 }
 .day-day-time {
@@ -41,7 +41,7 @@ h2 {
 .weather-today {
   font-size: smaller;
 }
-h2,
+.h2-degree,
 .day-time,
 .description-weather {
   margin-left: 12px;
@@ -74,24 +74,22 @@ img {
 
 .℉,
 .℃ {
-  font-weight: bolder;
   border-radius: 50%;
   text-align: center;
   transition: all, 150ms, ease-in-out;
-}
-.℃ {
   background-color: #44958b;
   color: white;
   border-color: #44958b;
 }
-.℉ {
-  background-color: white;
-  color: #44958b;
-  border-color: #44958b;
+.link {
+  text-decoration: none;
+  color: white;
+  cursor: default;
 }
 .active {
   color: white;
   cursor: default;
+  text-decoration: none;
 }
 .active:hover {
   text-decoration: none;
