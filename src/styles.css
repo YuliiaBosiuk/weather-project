@@ -26,12 +26,15 @@ body {
 h1 {
   font-size: 70px;
   text-align: center;
+  margin-top: 7px;
 }
 .city-name {
   text-align: center;
   font-size: 35px;
 }
-
+h2 {
+  margin-top: 100px;
+}
 .h2-degree {
   font-size: 45px;
 }
@@ -47,8 +50,8 @@ h1 {
   margin-left: 12px;
 }
 .city-picture {
-  width: 90%;
-  border-radius: 8px;
+  width: 72%;
+  border-radius: 6px;
   display: block;
   margin: 0 auto;
 }
