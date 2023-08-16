@@ -108,9 +108,8 @@ h1 {
 .day {
   text-align: center;
 }
-.emoji {
+.forecast-emoji {
   text-align: center;
-  font-size: 25px;
 }
 .week-degree {
   text-align: center;
