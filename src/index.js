@@ -25,21 +25,31 @@ let currentDateTime = document.querySelector("#date");
 let dayTimeNow = new Date();
 currentDateTime.innerHTML = formatDate(dayTimeNow);
 
-function searchFor(city) {
-  if (city) {
-    let apiKey = "df7f4a357df681d0e606cod7bt0a90f8";
-    let units = "metric";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&units=${units}&key=${apiKey}`;
-    axios.get(apiUrl).then(showWeatherCondition);
-  } else {
-    alert("Please enter a city name 🔍");
-  }
-}
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class="col-2">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title day">${day}</p>
+                <br/>
+                <p class="card-subtitle forecast-emoji"><img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="sky" width="43"/></p>
+                <br/>
+                <p class="week-degree"><span class="week-degree-high">20° </span><span class="week-degree-low"> 13°</span></p>
+            </div>
+        </div>
+    </div>
+  `;
+  });
 
-function handleSubmit(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-city-name").value;
-  searchFor(city);
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
 }
 
 function showWeatherCondition(response) {
@@ -61,6 +71,23 @@ function showWeatherCondition(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
   iconElement.setAttribute("alt", response.data.condition.icon);
+}
+
+function searchFor(city) {
+  if (city) {
+    let apiKey = "df7f4a357df681d0e606cod7bt0a90f8";
+    let units = "metric";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&units=${units}&key=${apiKey}`;
+    axios.get(apiUrl).then(showWeatherCondition);
+  } else {
+    alert("Please enter a city name 🔍");
+  }
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-city-name").value;
+  searchFor(city);
 }
 
 function showPosition(position) {
@@ -106,3 +133,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 searchFor("Seoul");
+displayForecast();
