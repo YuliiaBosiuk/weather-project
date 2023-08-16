@@ -25,26 +25,41 @@ let currentDateTime = document.querySelector("#date");
 let dayTimeNow = new Date();
 currentDateTime.innerHTML = formatDate(dayTimeNow);
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
     <div class="col-2">
-        <div class="card">
-            <div class="card-body">
-                <p class="card-title day">${day}</p>
-                <br/>
-                <p class="card-subtitle forecast-emoji"><img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png" alt="sky" width="43"/></p>
-                <br/>
-                <p class="week-degree"><span class="week-degree-high">20° </span><span class="week-degree-low"> 13°</span></p>
-            </div>
-        </div>
+    <div class="card">
+    <div class="card-body">
+    <p class="card-title day">${formatDay(forecastDay.time)}</p>
+    <br/>
+    <p class="card-subtitle forecast-emoji"><img src=${
+      forecastDay.condition.icon_url
+    } alt="sky" width="43"/></p>
+    <br/>
+    <p class="week-degree"><span class="week-degree-high">${Math.round(
+      forecastDay.temperature.maximum
+    )}° </span><span class="week-degree-low"> ${Math.round(
+          forecastDay.temperature.minimum
+        )}°</span></p>
     </div>
-  `;
+    </div>
+    </div>
+    `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
